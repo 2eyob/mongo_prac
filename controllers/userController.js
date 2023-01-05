@@ -1,7 +1,7 @@
 const User = require("../models/User");
 const userData = require("../_seedData/mockData");
 
-// Create and Save a new Tutorial
+// Create and Save a new user
 exports.create = async (req, res) => {
   try {
     let users;
