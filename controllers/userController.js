@@ -30,7 +30,7 @@ exports.getAll = async (req, res) => {
 
     // initializing filter,sort and select variables
     let _where = {};
-    let _sort = {};
+    let _sort = { createdAt: 1 }; // giving default sort order bt createdAt ASC
     let _select;
 
     // checking if there is select query exists
