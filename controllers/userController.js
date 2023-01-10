@@ -27,6 +27,7 @@ exports.getAll = async (req, res) => {
     const query = req.query;
 
     // parse limit and skip values. if there is skip&limit the default values will be executed
+    const page = query.page ? JSON.parse(query.page) : 0;
     const per_page = query.per_page ? JSON.parse(query.per_page) : 10;
     const page = query.page ? JSON.parse(query.page) * per_page : 0;
     // initializing filter,sort and select variables
@@ -34,10 +35,10 @@ exports.getAll = async (req, res) => {
     let _sort = { createdAt: 1 }; // giving default sort order bt createdAt ASC
     let _select;
 
-    // checking if there is select query exists
+    // checking if select query exists
     _select = query.select ? JSON.parse(query.select).join(" ") : "";
 
-    // checking if the is sort query exists
+    // checking if sort query exists
     if (query.sort) {
       const sort = JSON.parse(query.sort);
       let sortBy = sort[0];
@@ -48,7 +49,7 @@ exports.getAll = async (req, res) => {
         [sortBy]: sortOrder,
       };
     }
-    //checking if there is filter query exists and changing the operators for mongodb query
+    //checking if filter query exists and changing the operators suitable for mongoose query
     if (query.filters) {
       const filters = JSON.parse(query.filters);
       let operator = filters[0].operatorValue;
