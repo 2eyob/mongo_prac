@@ -27,7 +27,6 @@ exports.getAll = async (req, res) => {
     const query = req.query;
 
     // parse limit and skip values. if there is skip&limit the default values will be executed
-    const page = query.page ? JSON.parse(query.page) : 0;
     const per_page = query.per_page ? JSON.parse(query.per_page) : 10;
     const page = query.page ? JSON.parse(query.page) * per_page : 0;
     // initializing filter,sort and select variables
