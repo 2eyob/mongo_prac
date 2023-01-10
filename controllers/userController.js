@@ -5,6 +5,8 @@ const userData = require("../_seedData/mockData");
 exports.create = async (req, res) => {
   try {
     let users;
+    await User.deleteMany();
+
     for (const user of Object.keys(userData.userData)) {
       users = await User.create(userData.userData[user]);
     }
@@ -25,9 +27,8 @@ exports.getAll = async (req, res) => {
     const query = req.query;
 
     // parse limit and skip values. if there is skip&limit the default values will be executed
-    const page = query.page ? JSON.parse(query.page) : 0;
     const per_page = query.per_page ? JSON.parse(query.per_page) : 10;
-
+    const page = query.page ? JSON.parse(query.page) * per_page : 0;
     // initializing filter,sort and select variables
     let _where = {};
     let _sort = { createdAt: 1 }; // giving default sort order bt createdAt ASC

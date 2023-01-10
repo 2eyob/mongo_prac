@@ -5,7 +5,7 @@ exports.userData = [
     phone: "25195718188",
     email: "eyob@gmail.com",
     password: "123456",
-    address: "addis ababa",
+    address: "Addis Ababa",
     createdAt: "2022-03-14T08:28:54.019Z",
   },
   {
@@ -14,7 +14,7 @@ exports.userData = [
     phone: "25191245678",
     email: "yordanos@gmail.com",
     password: "67654",
-    address: "addis ababa",
+    address: "Addis Ababa",
 
     createdAt: "2022-03-14T08:28:55.019Z",
   },
@@ -28,7 +28,7 @@ exports.userData = [
     createdAt: "2022-03-14T08:27:54.019Z",
   },
   {
-    name: "john",
+    name: "John",
     role: "Member",
     phone: "25135819145",
     email: "john@gmail.com",
@@ -37,7 +37,7 @@ exports.userData = [
     createdAt: "2022-03-14T08:27:54.019Z",
   },
   {
-    name: "josh",
+    name: "Josh",
     role: "Member",
     phone: "25193581943",
     email: "jopsh@gmail.com",
